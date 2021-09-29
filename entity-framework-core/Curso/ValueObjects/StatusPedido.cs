@@ -1,8 +1,9 @@
 namespace CursoEFCore.ValuesObjects
-{ 
-  public enum StatusPedido{
+{
+  public enum StatusPedido
+  {
     Analise,
     Finalizado,
     Entregue
-  }  
+  }
 }

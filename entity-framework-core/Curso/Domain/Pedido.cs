@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using CursoEFCore.ValuesObjects;
 
-
 namespace CursoEFCore.Domain
 {
   public class Pedido

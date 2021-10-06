@@ -7,11 +7,12 @@ namespace CursoEFCore.Data
   public class AplicationContext : DbContext
   {
     public DbSet<Pedido> Pedido { get; set; }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
     {
-      optionsBuilder.UseSqlServer("Data source=(localdb)\\mssqllocaldb;Inital Catalog=CursoEFCore;Integrated Security=true");
-      base.OnConfiguring(optionsBuilder);
+      dbContextOptionsBuilder.UseSqlServer("Data source=(localdb)\\mssqllocaldb;Inital Catalog=CursoEFCore;Integrated Security=true");
+      base.OnConfiguring(dbContextOptionsBuilder);
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.ApplyConfiguration(new ClienteConfiguration());

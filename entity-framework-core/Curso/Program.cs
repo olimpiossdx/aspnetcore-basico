@@ -34,18 +34,31 @@ namespace CursoEFCore
         Ativo = true
       };
 
-      var cliente = new Cliente
-      {
-        Nome = "Jujé",
-        CEP = "9899999",
-        Cidade = "jujéCidade",
-        Estado = "JJ",
-        Telefone = "9855555555"
+      var clientes = new[] {
+
+        new Cliente{
+          Nome = "Jujénovis",
+          CEP = "9899999",
+          Cidade = "jujéCidade",
+          Estado = "JJ",
+          Telefone = "1855555555"
+        },
+
+        new Cliente{
+          Nome = "Jujéliaria",
+          CEP = "7777777",
+          Cidade = "jujéCidade",
+          Estado = "JJ",
+          Telefone = "7777777776"
+        },
       };
 
       using var db = new Data.AplicationContext();
 
-      db.AddRange(produto, cliente);
+      //db.AddRange(produto, cliente);
+      //db.Clientes.AddRange(clientes);
+      db.Set<Cliente>().AddRange(clientes);
+
       var registros = db.SaveChanges();
 
       Console.WriteLine($"Total registros(s) :{registros}");

@@ -20,10 +20,9 @@ namespace CursoEFCore
       }
 
       Console.WriteLine("Aplicação iniciada");
-      InserirDdados();
+      InserirDados();
     }
-
-    private static void InserirDdados()
+    private static void InserirDados()
     {
       var produto = new Produto
       {

@@ -2,11 +2,15 @@
 
 namespace CursoEFCore
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      //Não recomendado em produção, apenas para desenvolvimento.
+      //using var db = new Data.AplicationContext();
+      //db.Database.Migrate();
+
+      Console.WriteLine("Aplicação inicitada");
     }
+  }
 }

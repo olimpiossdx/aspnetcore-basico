@@ -1,4 +1,4 @@
-namespace CursoEFCore.ValuesObjects
+namespace CursoEFCore.ValueObjects
 {
   public enum StatusPedido
   {

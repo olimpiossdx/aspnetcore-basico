@@ -4,6 +4,6 @@ namespace CursoEFCore.ValueObjects
   {
     MercadoriaParaRevenda,
     Embalagem,
-    Servico
+    Servico,
   }
 }

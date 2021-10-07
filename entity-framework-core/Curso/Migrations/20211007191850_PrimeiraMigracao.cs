@@ -14,7 +14,7 @@ namespace CursoEFCore.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "VARCHAR(80)", nullable: false),
-                    Telefone = table.Column<string>(type: "CHAR(11)", nullable: true),
+                    Phone = table.Column<string>(type: "CHAR(11)", nullable: true),
                     CEP = table.Column<string>(type: "CHAR(8)", nullable: false),
                     Estado = table.Column<string>(type: "CHAR(2)", nullable: false),
                     Cidade = table.Column<string>(maxLength: 60, nullable: false)
@@ -33,7 +33,7 @@ namespace CursoEFCore.Migrations
                     CodigoBarras = table.Column<string>(type: "VARCHAR(14)", nullable: false),
                     Descricao = table.Column<string>(type: "VARCHAR(60)", nullable: true),
                     Valor = table.Column<decimal>(nullable: false),
-                    TipoProdduto = table.Column<string>(nullable: false),
+                    TipoProduto = table.Column<string>(nullable: false),
                     Ativo = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -48,7 +48,7 @@ namespace CursoEFCore.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ClienteId = table.Column<int>(nullable: false),
-                    InciadoEm = table.Column<DateTime>(nullable: false, defaultValueSql: "GETDATE()"),
+                    IniciadoEm = table.Column<DateTime>(nullable: false, defaultValueSql: "GETDATE()"),
                     FinalizadoEm = table.Column<DateTime>(nullable: false),
                     TipoFrete = table.Column<int>(nullable: false),
                     Status = table.Column<string>(nullable: false),
@@ -87,17 +87,17 @@ namespace CursoEFCore.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PedidoItens_Pedidos_ProdutoId",
+                        name: "FK_PedidoItens_Produtos_ProdutoId",
                         column: x => x.ProdutoId,
-                        principalTable: "Pedidos",
+                        principalTable: "Produtos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clientes_Telefone",
+                name: "idx_cliente_telefone",
                 table: "Clientes",
-                column: "Telefone");
+                column: "Phone");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PedidoItens_PedidoId",
@@ -121,10 +121,10 @@ namespace CursoEFCore.Migrations
                 name: "PedidoItens");
 
             migrationBuilder.DropTable(
-                name: "Produtos");
+                name: "Pedidos");
 
             migrationBuilder.DropTable(
-                name: "Pedidos");
+                name: "Produtos");
 
             migrationBuilder.DropTable(
                 name: "Clientes");

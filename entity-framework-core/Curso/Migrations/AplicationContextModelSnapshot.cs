@@ -44,11 +44,13 @@ namespace CursoEFCore.Migrations
                         .HasColumnType("VARCHAR(80)");
 
                     b.Property<string>("Telefone")
+                        .HasColumnName("Phone")
                         .HasColumnType("CHAR(11)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Telefone");
+                    b.HasIndex("Telefone")
+                        .HasName("idx_cliente_telefone");
 
                     b.ToTable("Clientes");
                 });
@@ -66,7 +68,7 @@ namespace CursoEFCore.Migrations
                     b.Property<DateTime>("FinalizadoEm")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("InciadoEm")
+                    b.Property<DateTime>("IniciadoEm")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
@@ -138,7 +140,7 @@ namespace CursoEFCore.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("VARCHAR(60)");
 
-                    b.Property<string>("TipoProdduto")
+                    b.Property<string>("TipoProduto")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -167,7 +169,7 @@ namespace CursoEFCore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CursoEFCore.Domain.Pedido", "Produto")
+                    b.HasOne("CursoEFCore.Domain.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Cascade)

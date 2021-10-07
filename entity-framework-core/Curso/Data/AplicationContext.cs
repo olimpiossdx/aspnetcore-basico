@@ -6,7 +6,9 @@ namespace CursoEFCore.Data
 {
   public class AplicationContext : DbContext
   {
-    public DbSet<Pedido> Pedido { get; set; }
+    public DbSet<Pedido> Pedidos { get; set; }
+    public DbSet<Produto> Produtos { get; set; }
+    public DbSet<Cliente> Clientes { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
     {
       dbContextOptionsBuilder.UseSqlServer("Data source=(localdb)\\mssqllocaldb;Initial Catalog=CursoEFCore;Integrated Security=true");
